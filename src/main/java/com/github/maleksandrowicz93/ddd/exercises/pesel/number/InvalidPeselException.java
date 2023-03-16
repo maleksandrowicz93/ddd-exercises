@@ -1,4 +1,4 @@
-package com.github.maleksandrowicz93.ddd.exercises.pesel;
+package com.github.maleksandrowicz93.ddd.exercises.pesel.number;
 
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;

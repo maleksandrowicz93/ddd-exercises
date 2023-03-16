@@ -1,4 +1,4 @@
-package com.github.maleksandrowicz93.ddd.exercises.pesel;
+package com.github.maleksandrowicz93.ddd.exercises.pesel.number;
 
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
@@ -7,10 +7,10 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.List;
 
-import static com.github.maleksandrowicz93.ddd.exercises.pesel.InvalidPeselCause.INCORRECT_CONTROL_DIGIT;
-import static com.github.maleksandrowicz93.ddd.exercises.pesel.InvalidPeselCause.INVALID_BIRTH_DAY;
-import static com.github.maleksandrowicz93.ddd.exercises.pesel.InvalidPeselCause.INVALID_LENGTH;
-import static com.github.maleksandrowicz93.ddd.exercises.pesel.InvalidPeselCause.NOT_A_NUMBER;
+import static com.github.maleksandrowicz93.ddd.exercises.pesel.number.InvalidPeselCause.INCORRECT_CONTROL_DIGIT;
+import static com.github.maleksandrowicz93.ddd.exercises.pesel.number.InvalidPeselCause.INVALID_BIRTH_DAY;
+import static com.github.maleksandrowicz93.ddd.exercises.pesel.number.InvalidPeselCause.INVALID_LENGTH;
+import static com.github.maleksandrowicz93.ddd.exercises.pesel.number.InvalidPeselCause.NOT_A_NUMBER;
 
 @ToString
 @FieldDefaults(makeFinal = true)

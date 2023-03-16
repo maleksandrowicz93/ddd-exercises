@@ -1,14 +1,14 @@
-package com.github.maleksandrowicz93.ddd.exercises.pesel
+package com.github.maleksandrowicz93.ddd.exercises.pesel.number
 
 import spock.lang.Specification
 import spock.lang.Unroll
 
 import java.time.LocalDate
 
-import static com.github.maleksandrowicz93.ddd.exercises.pesel.InvalidPeselCause.INCORRECT_CONTROL_DIGIT
-import static com.github.maleksandrowicz93.ddd.exercises.pesel.InvalidPeselCause.INVALID_BIRTH_DAY
-import static com.github.maleksandrowicz93.ddd.exercises.pesel.InvalidPeselCause.INVALID_LENGTH
-import static com.github.maleksandrowicz93.ddd.exercises.pesel.InvalidPeselCause.NOT_A_NUMBER
+import static InvalidPeselCause.INCORRECT_CONTROL_DIGIT
+import static InvalidPeselCause.INVALID_BIRTH_DAY
+import static InvalidPeselCause.INVALID_LENGTH
+import static InvalidPeselCause.NOT_A_NUMBER
 
 class PeselNumberSpec extends Specification {
 
