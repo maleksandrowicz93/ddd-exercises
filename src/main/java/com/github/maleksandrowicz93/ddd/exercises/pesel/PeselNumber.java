@@ -32,14 +32,28 @@ class PeselNumber {
     }
 
     private void validateSource() {
+        validateLength();
+        validateDigits();
+        validateControlDigit();
+    }
+
+    private void validateLength() {
         if (value.length() != 11) {
             throw new InvalidPeselException(INVALID_LENGTH);
         }
+    }
+
+    private void validateDigits() {
         try {
-            Long.parseLong(value);
+            for (var character : value.toCharArray()) {
+                Integer.parseInt(String.valueOf(character));
+            }
         } catch (NumberFormatException e) {
             throw new InvalidPeselException(NOT_A_NUMBER);
         }
+    }
+
+    private void validateControlDigit() {
         int calculatedControlDigit = calculateControlDigit(value);
         int peselControlDigit = extractFromPesel(10, 11);
         if (calculatedControlDigit != peselControlDigit) {
