@@ -52,6 +52,7 @@ class PeselNumberSpec extends Specification {
         "0207080362"   | INVALID_LENGTH
         "020708036222" | INVALID_LENGTH
         "0207080362A"  | NOT_A_NUMBER
+        null           | NOT_A_NUMBER
     }
 
     @Unroll("pesel: #pesel")

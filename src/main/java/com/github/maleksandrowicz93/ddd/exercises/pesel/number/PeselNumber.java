@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 import static com.github.maleksandrowicz93.ddd.exercises.pesel.number.InvalidPeselCause.INCORRECT_CONTROL_DIGIT;
 import static com.github.maleksandrowicz93.ddd.exercises.pesel.number.InvalidPeselCause.INVALID_BIRTH_DAY;
@@ -21,8 +22,11 @@ class PeselNumber {
     Sex sex;
 
     PeselNumber(String source) {
+        if (source == null) {
+            throw new InvalidPeselException(NOT_A_NUMBER);
+        }
         value = source.trim();
-        validateSource();
+        validateValue();
         try {
             dateOfBirth = calculateDayOfBirth();
         } catch (DateTimeException e) {
@@ -31,7 +35,7 @@ class PeselNumber {
         sex = calculateSex();
     }
 
-    private void validateSource() {
+    private void validateValue() {
         validateLength();
         validateDigits();
         validateControlDigit();
@@ -112,5 +116,17 @@ class PeselNumber {
 
     Sex extractSex() {
         return sex;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PeselNumber that)) return false;
+        return value.equals(that.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }
