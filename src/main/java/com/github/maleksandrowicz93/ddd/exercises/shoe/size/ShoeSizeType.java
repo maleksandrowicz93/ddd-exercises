@@ -90,6 +90,7 @@ enum ShoeSizeType implements ShoeSizeRounder, ShoeSizeConverter {
 
     private static final RoundingMode ROUNDING_MODE = HALF_UP;
     private static final int UK_TO_EU_DIFFERENCE = 33;
+
     RoundingStrategy roundingStrategy;
 
     ShoeSizeType() {
@@ -122,7 +123,7 @@ enum ShoeSizeType implements ShoeSizeRounder, ShoeSizeConverter {
                     return value;
                 }
                 BigDecimal increment = BigDecimal.valueOf(1d / 3d);
-                BigDecimal divided = value.divide(increment, new MathContext(2, ROUNDING_MODE));
+                BigDecimal divided = value.divide(increment, new MathContext(2));
                 BigDecimal multiplied = divided.multiply(increment);
                 return multiplied.setScale(2, ROUNDING_MODE);
             }
@@ -134,7 +135,7 @@ enum ShoeSizeType implements ShoeSizeRounder, ShoeSizeConverter {
                     return value;
                 }
                 BigDecimal increment = BigDecimal.valueOf(1d / 6d);
-                BigDecimal divided = value.divide(increment, new MathContext(2, ROUNDING_MODE));
+                BigDecimal divided = value.divide(increment, new MathContext(2));
                 BigDecimal multiplied = divided.multiply(increment);
                 return multiplied.setScale(2, ROUNDING_MODE);
             }
